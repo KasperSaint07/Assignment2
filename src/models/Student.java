@@ -4,18 +4,16 @@ import java.util.ArrayList;
 
 public class Student extends Person {
     private int studentId;
-    private int idCounter = 1;
+    static int idCounter = 1;
     private ArrayList<Integer> grades;
 
 
-
     public Student() {
-
     }
-    public Student(String name, String surname, int age, boolean gender) {
+    public Student(String name, String surname, int age, boolean gender, ArrayList<Integer> grades) {
         super(name, surname, age, gender);
         this.studentId = idCounter++;
-        this.grades = new ArrayList<>();
+        this.grades = new ArrayList<>(grades);
     }
 
     public void addGrade(int grade) {
@@ -31,17 +29,17 @@ public class Student extends Person {
         if (grades.isEmpty()) {
             return 0.0;
         }
-        int sum = 0;
+        double sum = 0.0;
         for (int i = 0; i < grades.size(); i++) {
-            sum += grades.get(i);
+            sum += (grades.get(i) / 100.0) * 4.0;
         }
 
-        return(double) sum / grades.size();
+        return Math.round(sum / grades.size());
     }
 
     @Override
     public String toString() {
-        return super.toString() + " I am student with ID" + studentId + ".";
+        return super.toString() + " I am a student with ID " + studentId + " , My GPA: " + calculateGPA();
     }
 
     public ArrayList<Integer> getGrades() {

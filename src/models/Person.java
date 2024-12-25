@@ -51,13 +51,17 @@ public class Person {
 
     @Override
     public String toString() {
-        String genderToString = gender ? "Male" : "Female";
-        return "Person{" + "Him I am" +
-                "name=" + name + "year old" +
-                ", surname='" + surname + '\'' +
-                ", age'" + age + '\'' +
-                ", gender=" + genderToString +
-                '}';
+String genderToString;
+        if (gender == true) {
+            genderToString = "Male";
+        }
+        else {
+            genderToString = "Female";
+        }
+        return  "Hi I am" + " " +
+                 name + " " + surname +
+                ", a " + age + " - year old" + " " +
+                 genderToString + ".";
     }
 
 

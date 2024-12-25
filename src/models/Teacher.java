@@ -9,12 +9,13 @@ public class Teacher extends Person {
     public Teacher() {
     }
 
-    public Teacher(String name, String surname, int age, boolean gender) {
+    public Teacher(String name, String surname, int age, boolean gender, String subject, int yearsOfExpirience, int salary) {
         super(name, surname, age, gender);
         this.subject = subject;
         this.yearsOfExpirience = yearsOfExpirience;
         this.salary = salary;
     }
+
     public void giveRaise(double percentage) {
         if (percentage > 0) {
             salary += salary * percentage / 100;
@@ -23,7 +24,7 @@ public class Teacher extends Person {
 
     @Override
     public String toString(){
-        return super.toString() + "I teach " + subject + ".";
+        return super.toString() + " I teach " + subject + " , My salary: " + salary + ".";
     }
 
     public int getSalary() {
